@@ -1,0 +1,54 @@
+/* -------------------------------- Header ----------------------------------------- */
+.header{
+    display: flex;
+}
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-left > img {
+    height: 40px;
+    object-fit: contain;
+    margin-right: 10px;
+}
+
+.header-search{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    height: 22px;
+    color: gray;
+    background-color: #eef3f8;
+}
+
+.header-search > input {
+    outline: none;
+    border: none;
+    background: none;
+}
+
+.header-right{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.header-right > .right-icons {
+    display: flex;
+    flex-direction: column;
+}
+
+.headerOption {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 10px;
+    color: gray;
+}
+
+.headerOption:hover {
+    color: black;
+    cursor: pointer;
+}
