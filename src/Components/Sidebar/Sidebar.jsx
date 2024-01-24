@@ -3,6 +3,9 @@ import '../../../public/styles/style.css'
 import { Avatar } from '@mui/material'
 
 const Sidebar = () => {
+
+    const recentHashtags = ['reactjs', 'programming', 'softwareengineering', 'design', 'developer']
+
   return (
     <div className='sidebar'>
         <div className="sidebar-top">
@@ -20,13 +23,22 @@ const Sidebar = () => {
                 <p className='sidebar-statNumber'>2,524</p>
             </div>
             <div className="sidebar--stat">
-                <p>Who viewed you</p>
+                <p>Views on post</p>
                 <p className='sidebar-statNumber'>6,7860</p>
             </div>
         </div>
 
         <div className="sidebar-bottom">
-            <p>Recent</p>
+            <p className='recent'>Recent</p>
+            {
+                recentHashtags.map((tags, index) => {
+                    return (
+                        <div className='sidebar-recentTags' key={index}>
+                            <p>#{tags}</p>
+                        </div>
+                    )
+                })
+            }
         </div>
     </div>
   )
