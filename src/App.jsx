@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import Header from './Components/Header'
 import Sidebar from './Components/Sidebar/Sidebar'
+import Feed from './Components/Feed/Feed'
 
 function App() {
 
@@ -14,11 +15,12 @@ function App() {
       <div className="app-body">
       {/* Left Sidebar */}
         <Sidebar />
-
+        
           {/* Feed */}
-          <h1>LinkedIn Clone soon ...</h1>
+          <Feed />
       
       {/* Right sidebar / Widgets */}
+      <h4>Right Sidebar</h4>
       </div>
       
     </div>
