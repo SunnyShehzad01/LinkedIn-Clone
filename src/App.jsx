@@ -15,22 +15,22 @@ function App() {
   const auth = getAuth()
   const dispatch = useDispatch()
 
-  // useEffect(() => {
-  //   onAuthStateChanged(auth, userAuth => {
-  //     if(userAuth) {
-  //       //user logged in
-  //       dispatch(login({
-  //         email: userAuth.user.email,
-  //         uid: userAuth.uid,
-  //         displayName: userAuth.displayName,
-  //         photoUrl: userAuth.photoURL
-  //       }))
-  //     } else {
-  //       //user logged out
-  //       dispatch(logout())
-  //     }
-  //   })
-  // })
+  useEffect(() => {
+    onAuthStateChanged(auth, userAuth => {
+      if(userAuth) {
+        //user logged in
+        dispatch(login({
+          email: userAuth.email,
+          uid: userAuth.uid,
+          displayName: userAuth.displayName,
+          photoUrl: userAuth.photoURL
+        }))
+      } else {
+        //user logged out
+        dispatch(logout())
+      }
+    })
+  }, [])
 
   return (
     <div className='app'>
