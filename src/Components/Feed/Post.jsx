@@ -1,10 +1,10 @@
 import { Avatar } from '@mui/material'
-import React from 'react'
+import React, {forwardRef} from 'react'
 import '../../../public/styles/style.css'
 import InputOptions from './inputOptions'
 import { ChatOutlined, SendOutlined, ShareOutlined, ThumbUpAltOutlined } from '@mui/icons-material'
 
-const Post = ({name, descripton, message, photoUrl}) => {
+const Post = forwardRef(({name, descripton, message, photoUrl}, ref) => {
     const postButtonDetails = [
         {
             icon: ThumbUpAltOutlined,
@@ -28,12 +28,14 @@ const Post = ({name, descripton, message, photoUrl}) => {
         }
     ]
   return (
-    <div className='post'>
+    <div ref={ref} className='post'>
         <div className="post-header">
-            <Avatar />
+            <Avatar src={photoUrl} >
+                {name[0]}
+            </Avatar>
 
             <div className="post-info">
-                <h2>Sunny Shehzad</h2>
+                <h2>{name}</h2>
                 <p>{descripton}</p>
             </div>
         </div>
@@ -53,6 +55,6 @@ const Post = ({name, descripton, message, photoUrl}) => {
         </div>
     </div>
   )
-}
+})
 
 export default Post

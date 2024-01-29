@@ -7,6 +7,7 @@ import { login, logout, selectUser } from './features/userSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import Login from './Components/LoginPage/Login'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
+import Widgets from './Components/RightSideBar/Widgets'
 
 function App() {
 
@@ -49,12 +50,9 @@ function App() {
           <Feed />
       
       {/* Right sidebar / Widgets */}
-      <h4>Right Sidebar</h4>
+      <Widgets />
       </div>
-
     }
-      
-      
     </div>
   )
 }

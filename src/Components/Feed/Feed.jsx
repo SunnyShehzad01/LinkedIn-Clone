@@ -9,12 +9,17 @@ import CalendarViewDayIcon from '@mui/icons-material/CalendarViewDay'
 import Post from './Post'
 import {db} from '../../firebase'
 import { addDoc, collection, onSnapshot, orderBy, query, serverTimestamp } from 'firebase/firestore'
+import { useSelector } from 'react-redux'
+import { selectUser } from '../../features/userSlice'
+import FlipMove from 'react-flip-move'
 
 const Feed = () => {
     const [input, setInput] = useState('')
     const [posts, setPosts] = useState([])
     const colRef = collection(db, 'posts')
-    const q = query(colRef, orderBy('timestamp'))
+    // const q = query(colRef, orderBy('timestamp'))
+    const q = query(colRef, orderBy('timestamp', 'desc'))
+    const user = useSelector(selectUser)
 
     useEffect(()=> {
 
@@ -30,7 +35,7 @@ const Feed = () => {
         // console.log(db);
 
         //Onsnapshot - used to get realtime update of the db, if anything changes.
-        onSnapshot(colRef, (snapshot) => {
+        onSnapshot(q, (snapshot) => {
             setPosts(
                 snapshot.docs.map((doc) => ({
                     id: doc.id,
@@ -53,10 +58,10 @@ const Feed = () => {
 
         // New way of adding into firestore database
         addDoc(colRef, {
-            name: "Sunny Shehzad",
-            description: "This is a test",
+            name: user.displayName,
+            description: user.email,
             message: input,
-            photoUrl: '',
+            photoUrl: user.photoUrl || "",
             timestamp: serverTimestamp()
         }).then(() => {
             setInput('')
@@ -108,6 +113,7 @@ const Feed = () => {
             </div>
         </div>
         <div className="posts">
+            <FlipMove>
                 {
                     posts.map(({id, data: {name, description, message, photoUrl}})=> (
                         <Post 
@@ -119,6 +125,7 @@ const Feed = () => {
                         />
                     ))
                 }
+            </FlipMove>
             </div>
     </div>
   )

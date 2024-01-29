@@ -61,9 +61,9 @@ const Login = () => {
 
             <input value={profilePic} onChange={e => setProfilePic(e.target.value)} type="text" placeholder='profile picture Url (Optional'/>
 
-            <input value={email} onChange={e => setEmail(e.target.value)} type="Email" placeholder='Email' />
+            <input value={email} onChange={e => setEmail(e.target.value)} type="Email" placeholder='Email' autoComplete='on' />
 
-            <input value={password} onChange={e => setPassword(e.target.value)} type="password" placeholder='password'/>
+            <input value={password} onChange={e => setPassword(e.target.value)} type="password" placeholder='password' autoComplete='on'/>
 
             <button type='submit' onClick={loginToApp}>Sign In</button>
         </form>

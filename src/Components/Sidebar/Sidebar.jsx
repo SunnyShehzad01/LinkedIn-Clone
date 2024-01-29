@@ -1,8 +1,11 @@
 import React from 'react'
 import '../../../public/styles/style.css'
 import { Avatar } from '@mui/material'
+import { useSelector } from 'react-redux'
+import { selectUser } from '../../features/userSlice'
 
 const Sidebar = () => {
+    const user = useSelector(selectUser)
 
     const recentHashtags = ['reactjs', 'programming', 'softwareengineering', 'design', 'developer']
 
@@ -11,10 +14,12 @@ const Sidebar = () => {
         <div className="sidebar-top">
             <img src="https://previews.123rf.com/images/kittikornphongok/kittikornphongok1505/kittikornphongok150501320/40269755-colorful-watercolor-grunge-texture-background-soft-background.jpg" 
                 alt="cover-img" />
-            <Avatar className='sidebar-avatar' />
+            <Avatar src={user.photoUrl} className='sidebar-avatar' >
+                {user.displayName[0]}
+            </Avatar>
 
-            <h2>Sunny Shehzad</h2>
-            <h4>shehzad415072@gmail.com</h4>
+            <h2>{user.displayName}</h2>
+            <h4>{user.email}</h4>
         </div>
 
         <div className="sidebar-stats">
