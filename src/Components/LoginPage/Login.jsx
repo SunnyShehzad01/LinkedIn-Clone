@@ -3,6 +3,8 @@ import '../../../public/styles/style.css'
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { useDispatch } from 'react-redux'
 import { login } from '../../features/userSlice'
+import { GitHub, Instagram, Twitter } from '@mui/icons-material'
+import { Link } from 'react-router-dom'
 
 const Login = () => {
 
@@ -69,6 +71,18 @@ const Login = () => {
         </form>
 
         <p>Not a member ? <span className='login-register' onClick={register}>Register Now</span></p>
+
+        <p>Made by @Sunny.Shehzad</p>
+        <div>
+            
+            <Link to={'https://twitter.com/SunnyShehzad7'} target='_blank'>
+                <Twitter className='social-icon' />
+            </Link>
+            <Link to={'https://github.com/SunnyShehzad01/LinkedIn-Clone'} target='_blank'>
+                <GitHub className='social-icon' />
+            </Link>
+
+        </div>
     </div>
   )
 }

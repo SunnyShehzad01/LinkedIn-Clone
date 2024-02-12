@@ -386,3 +386,12 @@
     font-size: 12px;
     color: gray;
 }
+
+.social-icon {
+    color: gray;
+    margin-right: 5px;
+}
+
+.social-icon:hover {
+    color: black;
+}
